@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SpecSeek | Nishi Agarwal</title>
+  <meta name="description" content="SpecSeek case study: a RAG assistant over component datasheets with page citations; retrieval hit rate@4 raised from 68% to 84%.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap">
+      <a class="logo" href="/"><span class="logo-mark">NA</span>Nishi Agarwal</a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/projects/" aria-current="page">Projects</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/leadership/">Leadership</a></li>
+          <li><a class="cta" href="/nishi-agarwal-resume.pdf">Resume</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+    <div class="page-head">
+    <div class="wrap">
+      <p class="crumbs"><a href="/">Home</a> / <a href="/projects/">Projects</a> / SpecSeek</p>
+      <h1>SpecSeek</h1>
+      <p class="lede">Ask a question about an electronic component and get an answer with the datasheet page it came from.</p>
+      <ul class="chips meta"><li>Python</li><li>FastAPI</li><li>FAISS</li><li>sentence-transformers</li><li>PyMuPDF</li><li>Llama 3</li></ul>
+    </div>
+  </div>
+
+  <main class="wrap page">
+
+    <section class="block">
+      <div class="cols-3">
+        <div class="card"><span class="label">The problem</span><p>Datasheets run to hundreds of pages. Finding one timing value or pin limit means a lot of scrolling and searching.</p></div>
+        <div class="card"><span class="label">The approach</span><p>Split datasheets into overlapping chunks, find the most relevant ones with vector search, and let an LLM answer only from them.</p></div>
+        <div class="card violet"><span class="label">The result</span><span class="num">68 to 84%</span><p>Retrieval hit rate@4 on a 25-question evaluation set.</p></div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>How a question is answered</h2>
+      <div class="cols-3">
+        <div class="card"><span class="label">Step 1</span><h3>Extract</h3><p>PyMuPDF pulls text from each datasheet page, keeping page numbers for citations.</p></div>
+        <div class="card"><span class="label">Step 2</span><h3>Chunk and embed</h3><p>Text is split into overlapping chunks and embedded with sentence-transformers.</p></div>
+        <div class="card"><span class="label">Step 3</span><h3>Retrieve</h3><p>FAISS cosine-similarity search returns the four closest chunks to the question.</p></div>
+        <div class="card amber"><span class="label">Step 4</span><h3>Gate</h3><p>If even the best match is below a similarity threshold, the question is refused before the LLM is called.</p></div>
+        <div class="card"><span class="label">Step 5</span><h3>Answer</h3><p>Llama 3 answers from the retrieved chunks only, citing the page each fact came from.</p></div>
+        <div class="card"><span class="label">Step 6</span><h3>Cache</h3><p>A hash of each file keys its embeddings, so re-uploading a datasheet skips re-indexing entirely.</p></div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Measured results</h2>
+      <div class="cols-2">
+        <div class="card">
+          <span class="label">Retrieval hit rate@4</span>
+          <div class="bars" role="img" aria-label="Retrieval hit rate at 4 rose from 68 percent to 84 percent">
+            <div class="bar-row"><span class="name">Before</span><div class="bar-track"><div class="bar-fill" style="width:68%"></div></div><span class="v">68%</span></div>
+            <div class="bar-row"><span class="name">Tuned</span><div class="bar-track"><div class="bar-fill good" style="width:84%"></div></div><span class="v good">84%</span></div>
+          </div>
+          <p style="margin-top:18px">Chunk sizes of 400, 800 and 1,200 characters were benchmarked on the same 25 questions, and the best size was kept.</p>
+        </div>
+        <div class="card ink">
+          <span class="label">Out-of-scope questions refused</span>
+          <span class="num">4 of 5</span>
+          <p>Questions the datasheets can't answer are declined instead of answered with a guess. Refusing before the LLM call also saves a model request.</p>
+        </div>
+      </div>
+    </section>
+
+    <nav class="next" aria-label="More">
+      <a href="/projects/snip/"><small>Previous project</small><strong>Snip</strong></a>
+      <a href="/projects/"><small>Back to</small><strong>All projects</strong></a>
+    </nav>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>Nishi Agarwal, NIT Bhopal</span>
+      <span class="links">
+        <a href="mailto:agarwalnishi003@gmail.com">Email</a>
+        <a href="https://github.com/agarwalnishi">GitHub</a>
+        <a href="https://linkedin.com/in/nishi-agarwal-497812290">LinkedIn</a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>
