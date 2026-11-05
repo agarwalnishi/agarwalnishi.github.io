@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects | Nishi Agarwal</title>
+  <meta name="description" content="Snip and SpecSeek: backend and retrieval projects by Nishi Agarwal, with measured results.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap">
+      <a class="logo" href="/"><span class="logo-mark">NA</span>Nishi Agarwal</a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/projects/" aria-current="page">Projects</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/leadership/">Leadership</a></li>
+          <li><a class="cta" href="/nishi-agarwal-resume.pdf">Resume</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-head">
+    <div class="wrap">
+      <p class="crumbs"><a href="/">Home</a> / Projects</p>
+      <h1>Projects</h1>
+      <p class="lede">Two systems, each with a number I set out to move and the measurement showing whether it moved.</p>
+    </div>
+  </div>
+
+  <main class="wrap page">
+
+    <article class="proj">
+      <div class="proj-text">
+        <h2>Snip</h2>
+        <p class="kind">High-throughput URL shortener</p>
+        <p>A REST service that turns long links into 7-character codes and redirects visitors. The interesting part is keeping redirects fast under load: a Redis cache in front of PostgreSQL, click counting moved off the request path, and a load test to measure the difference.</p>
+        <ul class="chips"><li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>Redis</li><li>Docker</li><li>pytest</li><li>Locust</li></ul>
+        <div class="proj-actions">
+          <a class="btn btn-ink" href="/projects/snip/">Read the case study</a>
+          <a class="btn" href="https://github.com/agarwalnishi/Snip">Source code</a>
+        </div>
+      </div>
+      <div class="proj-side">
+        <div><b>23x</b><span>faster p95 redirects with the cache (300 to 13 ms)</span></div>
+        <div><b>2.2x</b><span>throughput, 568 to 1,236 requests a second</span></div>
+        <div><b>93.3%</b><span>cache hit rate over 147,694 requests</span></div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="proj-text">
+        <h2>SpecSeek</h2>
+        <p class="kind">Retrieval-augmented assistant for electronic datasheets</p>
+        <p>Ask a question about a component and get an answer with the datasheet page it came from. Built around retrieval quality: chunk sizes were benchmarked on an evaluation set, and questions outside the datasheets are refused before the language model is called.</p>
+        <ul class="chips"><li>Python</li><li>FastAPI</li><li>FAISS</li><li>sentence-transformers</li><li>PyMuPDF</li><li>Llama 3</li></ul>
+        <div class="proj-actions">
+          <a class="btn btn-ink" href="/projects/specseek/">Read the case study</a>
+        </div>
+      </div>
+      <div class="proj-side">
+        <div><b>84%</b><span>retrieval hit rate@4, up from 68%</span></div>
+        <div><b>4 of 5</b><span>out-of-scope questions correctly refused</span></div>
+        <div><b>0</b><span>re-indexing on re-upload, thanks to a hash-based cache</span></div>
+      </div>
+    </article>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>Nishi Agarwal, NIT Bhopal</span>
+      <span class="links">
+        <a href="mailto:agarwalnishi003@gmail.com">Email</a>
+        <a href="https://github.com/agarwalnishi">GitHub</a>
+        <a href="https://linkedin.com/in/nishi-agarwal-497812290">LinkedIn</a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>
