@@ -102,3 +102,18 @@ footer .links { display: flex; flex-wrap: wrap; gap: 18px; }
   stroke-dasharray: 2400; stroke-dashoffset: 2400; animation: draw 2.4s .3s cubic-bezier(.3,.6,.2,1) forwards; }
 .wave .trace-2 { stroke: #9b84ff; stroke-width: 2; opacity: .7; animation-delay: .6s; }
 @keyframes draw { to { stroke-dashoffset: 0; } }
+
+
+
+/* entrance */
+@keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+.hero .rise { animation: rise .7s ease-out both; }
+.hero .rise.d1 { animation-delay: .08s; }
+.hero .rise.d2 { animation-delay: .16s; }
+.hero .rise.d3 { animation-delay: .24s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .wave .trace { animation: none; stroke-dashoffset: 0; }
+  .hero .rise, .bar-fill { animation: none; }
+  .mini-card { transition: none; }
+}
