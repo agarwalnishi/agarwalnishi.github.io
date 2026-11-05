@@ -192,3 +192,45 @@ footer .links { display: flex; flex-wrap: wrap; gap: 18px; }
   .wave { height: 80px; }
   .hero .wrap { padding-top: 44px; }
 }
+
+
+
+/* ---------- inner page header ---------- */
+.page-head { background: var(--ink); color: #fff; }
+.page-head .wrap { padding-top: 48px; padding-bottom: 44px; }
+.crumbs { margin: 0 0 14px; font-size: 0.93rem; color: #bfb3e3; }
+.crumbs a { color: #d9d1ef; }
+.page-head h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; letter-spacing: -0.02em; }
+.page-head p.lede { font-size: 1.2rem; color: #ece7fb; max-width: 52ch; margin: 14px 0 0; line-height: 1.5; }
+.page-head .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.page-head .meta li { background: rgba(255,255,255,0.1); color: #fff; }
+
+main.page { padding: 48px 0 72px; }
+
+/* columns layout for inner pages */
+.cols-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.cols-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.block { margin-bottom: 48px; }
+.block > h2 { font-size: 1.8rem; margin-bottom: 18px; }
+.block > p.intro { max-width: 62ch; color: var(--muted); margin: -8px 0 22px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; }
+.card h3 { font-size: 1.25rem; margin-bottom: 8px; }
+.card p { margin: 0 0 10px; }
+.card p:last-child { margin-bottom: 0; }
+.card .label { display: block; color: var(--muted); font-size: 0.9rem; margin-bottom: 6px; }
+.card.violet { background: var(--violet); color: #fff; border-color: var(--violet); }
+.card.violet .label { color: #e6dfff; }
+.card.amber { background: var(--amber-soft); border-color: #f8dca5; }
+.card.ink { background: var(--ink); color: #fff; border-color: var(--ink); }
+.card.ink .label { color: #bfb3e3; }
+.card .num { font-family: var(--display); font-weight: 800; font-size: 2.6rem; line-height: 1; display: block; margin: 4px 0 8px; }
+
+/* project overview cards */
+.proj { display: grid; grid-template-columns: 1.1fr 1fr; gap: 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; margin-bottom: 22px; }
+.proj-text { padding: 28px; }
+.proj-text h2 { font-size: 2rem; margin-bottom: 6px; }
+.proj-text .kind { color: var(--muted); margin: 0 0 16px; }
+.proj-side { background: var(--ink); color: #fff; padding: 28px; display: flex; flex-direction: column; justify-content: center; gap: 18px; }
+.proj-side b { font-family: var(--display); font-size: 2.4rem; line-height: 1; display: block; color: var(--amber); }
+.proj-side span { color: #d9d1ef; font-size: 0.95rem; }
+.proj-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
