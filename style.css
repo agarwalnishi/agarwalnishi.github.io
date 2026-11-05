@@ -117,3 +117,78 @@ footer .links { display: flex; flex-wrap: wrap; gap: 18px; }
   .hero .rise, .bar-fill { animation: none; }
   .mini-card { transition: none; }
 }
+
+
+
+
+/* ---------- bento grid (home) ---------- */
+.bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; padding: 48px 0 64px; }
+.tile { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 24px; display: flex; flex-direction: column; min-width: 0; }
+.tile h2 { font-size: 1.45rem; margin-bottom: 14px; }
+.tile .more { margin-top: auto; padding-top: 18px; font-weight: 600; }
+.t-projects { grid-column: span 4; grid-row: span 2; }
+.t-stats { grid-column: span 2; background: var(--violet); border-color: var(--violet); color: #fff; }
+.t-stats a { color: #fff; }
+.t-skills { grid-column: span 2; }
+.t-edu { grid-column: span 2; background: var(--amber-soft); border-color: #f8dca5; }
+.t-lead { grid-column: span 2; }
+.t-contact { grid-column: span 2; background: var(--ink); border-color: var(--ink); color: #fff; }
+.t-contact a { color: var(--amber); }
+
+.mini { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.mini-card { display: block; text-decoration: none; color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 18px; transition: border-color .2s, transform .2s; }
+.mini-card:hover { border-color: var(--violet); color: var(--ink); transform: translateY(-2px); }
+.mini-card h3 { font-size: 1.35rem; margin-bottom: 4px; }
+.mini-card .kind { color: var(--muted); font-size: 0.92rem; margin: 0 0 14px; }
+.mini-card .big { font-family: var(--display); font-weight: 700; font-size: 1.9rem; color: var(--violet); line-height: 1; }
+.mini-card .big-label { font-size: 0.9rem; color: var(--muted); margin: 6px 0 12px; }
+
+.stat { padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.22); }
+.stat:first-of-type { border-top: 0; padding-top: 0; }
+.stat b { display: block; font-family: var(--display); font-size: 2rem; line-height: 1.05; }
+.stat span { font-size: 0.93rem; color: #e6dfff; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.chips li { background: var(--violet-soft); color: var(--ink-2); border-radius: 999px; padding: 4px 12px; font-size: 0.9rem; font-weight: 500; }
+.chips.amber li { background: var(--amber-soft); }
+
+.edu-line { margin: 0 0 4px; font-weight: 600; }
+.edu-sub { margin: 0; color: var(--muted); font-size: 0.95rem; }
+.edu-score { font-family: var(--display); font-weight: 700; font-size: 2.2rem; line-height: 1; margin: 16px 0 2px; }
+
+.home-chart { margin-top: 18px; padding: 18px; border-radius: 14px; background: var(--paper); border: 1px solid var(--line); }
+.home-chart-title { margin: 0 0 12px; font-family: var(--display); font-weight: 700; }
+.home-chart .bars { gap: 10px; }
+
+/* bars */
+.bars { display: grid; gap: 14px; }
+.bar-row { display: grid; grid-template-columns: 90px 1fr 80px; align-items: center; gap: 12px; }
+.bar-row .name { font-size: 0.95rem; color: var(--muted); }
+.bar-track { height: 18px; border-radius: 999px; background: var(--violet-soft); overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 999px; background: #b9aedb; transform-origin: left; animation: grow 1.2s .3s cubic-bezier(.2,.7,.2,1) both; }
+.bar-fill.good { background: var(--violet); }
+.bar-row .v { text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
+.bar-row .v.good { color: var(--violet); }
+@keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+
+
+/* ---------- responsive ---------- */
+@media (max-width: 960px) {
+  .t-projects { grid-column: span 6; grid-row: auto; }
+  .t-stats, .t-skills, .t-edu, .t-lead, .t-contact { grid-column: span 3; }
+  .cols-3 { grid-template-columns: 1fr 1fr; }
+  .proj { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .wrap { padding: 0 16px; }
+  .nav .wrap { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .nav li a { padding: 5px 10px; }
+  .bento { gap: 14px; padding-top: 32px; }
+  .t-stats, .t-skills, .t-edu, .t-lead, .t-contact { grid-column: span 6; }
+  .mini, .cols-2, .cols-3 { grid-template-columns: 1fr; }
+  .bar-row { grid-template-columns: 70px 1fr 64px; gap: 8px; }
+  .wave { height: 80px; }
+  .hero .wrap { padding-top: 44px; }
+}
