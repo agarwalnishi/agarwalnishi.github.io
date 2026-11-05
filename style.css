@@ -1,0 +1,40 @@
+/* Nishi Agarwal, shared styles */
+:root {
+  --ink: #1e1433;
+  --ink-2: #2b1f47;
+  --paper: #fbfaff;
+  --card: #ffffff;
+  --line: #e4def2;
+  --muted: #6b6280;
+  --violet: #5b3de8;
+  --violet-soft: #ece7ff;
+  --amber: #f5a524;
+  --amber-soft: #fff3dc;
+  --mint: #0e9f6e;
+  --focus: #f5a524;
+  --display: "Bricolage Grotesque", "Segoe UI", sans-serif;
+  --body: "Figtree", "Segoe UI", Arial, sans-serif;
+  --r: 18px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+a { color: var(--violet); text-underline-offset: 3px; }
+a:hover { color: var(--ink); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 6px; }
+
+h1, h2, h3 { font-family: var(--display); line-height: 1.1; margin: 0; letter-spacing: -0.01em; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
