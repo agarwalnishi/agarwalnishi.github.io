@@ -174,6 +174,34 @@ footer .links { display: flex; flex-wrap: wrap; gap: 18px; }
 
 
 /* ---------- responsive ---------- */
+
+/* tables */
+table { width: 100%; border-collapse: collapse; font-size: 0.97rem; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+thead th { font-family: var(--display); color: var(--muted); font-weight: 600; font-size: 0.92rem; }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+td.good { color: var(--violet); font-weight: 700; }
+caption { caption-side: bottom; text-align: left; color: var(--muted); font-size: 0.88rem; padding-top: 10px; }
+
+/* diagram */
+.diagram { width: 100%; height: auto; display: block; }
+.diagram .box { fill: var(--card); stroke: var(--line); stroke-width: 1.5; }
+.diagram .box.hot { fill: var(--violet-soft); stroke: var(--violet); }
+.diagram .box.store { fill: var(--amber-soft); stroke: #f0c46a; }
+.diagram text { font-family: var(--body); font-size: 14px; fill: var(--ink); }
+.diagram .t { font-weight: 700; font-family: var(--display); font-size: 15px; }
+.diagram .s { fill: var(--muted); font-size: 12.5px; }
+.diagram .arrow { stroke: var(--muted); stroke-width: 1.6; fill: none; }
+.diagram .arrow.dash { stroke-dasharray: 5 5; }
+
+/* next page links */
+.next { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 8px; }
+.next a { display: block; padding: 18px 20px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); text-decoration: none; color: var(--ink); }
+.next a:hover { border-color: var(--violet); color: var(--ink); }
+.next small { display: block; color: var(--muted); }
+.next strong { font-family: var(--display); font-size: 1.2rem; }
+
+
 @media (max-width: 960px) {
   .t-projects { grid-column: span 6; grid-row: auto; }
   .t-stats, .t-skills, .t-edu, .t-lead, .t-contact { grid-column: span 3; }
