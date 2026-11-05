@@ -172,6 +172,17 @@ footer .links { display: flex; flex-wrap: wrap; gap: 18px; }
 @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
 
+/* timeline */
+.timeline { list-style: none; margin: 0; padding: 0; border-left: 3px solid var(--violet-soft); }
+.timeline li { position: relative; padding: 0 0 26px 26px; }
+.timeline li::before { content: ""; position: absolute; left: -9px; top: 6px; width: 15px; height: 15px; border-radius: 50%; background: var(--paper); border: 3px solid var(--violet); }
+.timeline .when { color: var(--muted); font-size: 0.92rem; }
+.timeline h3 { font-size: 1.25rem; margin: 2px 0 4px; }
+.timeline p { margin: 0; }
+
+ul.ticks { margin: 0; padding-left: 1.2em; }
+ul.ticks li { margin-bottom: 8px; }
+
 
 /* ---------- responsive ---------- */
 
