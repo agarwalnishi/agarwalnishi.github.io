@@ -75,3 +75,30 @@ footer .links { display: flex; flex-wrap: wrap; gap: 18px; }
 .btn-ghost:hover { color: #fff; border-color: #fff; }
 .btn-ink { background: var(--ink); color: #fff; }
 .btn-ink:hover { background: var(--violet); color: #fff; }
+
+
+
+/* ---------- hero (home) ---------- */
+.hero { background: var(--ink); color: #fff; overflow: hidden; position: relative; }
+.hero::before {
+  content: ""; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: linear-gradient(to bottom, #000 30%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent);
+}
+.hero .wrap { position: relative; padding-top: 64px; padding-bottom: 40px; }
+.hero-tag { display: inline-flex; align-items: center; gap: 8px; color: #d9d1ef; font-size: 0.95rem; margin: 0 0 18px; }
+.hero-tag .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 4px rgba(14,159,110,0.25); }
+.hero h1 { font-size: clamp(3rem, 9vw, 6.4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 0.95; max-width: 9ch; }
+.hero h1 span { color: var(--amber); }
+.hero-lead { font-size: clamp(1.15rem, 2.2vw, 1.4rem); color: #ece7fb; max-width: 36ch; margin: 22px 0 28px; line-height: 1.45; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.wave { display: block; width: 100%; height: 120px; margin-top: 36px; }
+.wave .trace { fill: none; stroke: var(--amber); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;
+  stroke-dasharray: 2400; stroke-dashoffset: 2400; animation: draw 2.4s .3s cubic-bezier(.3,.6,.2,1) forwards; }
+.wave .trace-2 { stroke: #9b84ff; stroke-width: 2; opacity: .7; animation-delay: .6s; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
